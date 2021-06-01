@@ -1,12 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import CatDetailBox from 'components/CatDetailBox';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
 const CatCarousel = (props) => {
+  
   // create the gallery setup
+  const renderSlides = () => props.cats.map(cat => {
+    return <img src={cat.url} key={cat.id} />
+  })
   return (
-    <div>Carousel</div>
+    <>
+    <main className='img-carousel'>      
+      <Carousel
+        plugins={[
+          'centered', 
+          'infinite',
+          'arrows',
+          {
+            resolve: slidesToShowPlugin,
+            options: {
+            numberOfSlides: 3
+            }
+          },
+        ]}
+        breakpoints={{
+          640: {
+            plugins: [
+            {
+              resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 1
+              }
+            },
+          ]
+          },
+          900: {
+            plugins: [
+            {
+              resolve: slidesToShowPlugin,
+              options: {
+                numberOfSlides: 2
+              }
+            },
+          ]
+          }
+        }}
+      >
+        {renderSlides()}
+      </Carousel>
+    </main>
+    </>
   );
 }
 

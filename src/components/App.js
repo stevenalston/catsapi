@@ -19,7 +19,7 @@ const App = (props) => {
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand>
           <Nav.Link>
-              <Link to="/">Lazer Cats</Link>
+              <Link to="/">Cats API</Link>
             </Nav.Link>
           </Navbar.Brand>
           <Nav className="mr-auto">
