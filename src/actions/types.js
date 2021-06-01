@@ -1,0 +1,1 @@
+export const FETCH_CATS = 'fetch_cats';

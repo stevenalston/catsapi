@@ -1,0 +1,2 @@
+export const CATS_API_KEY = '26410805-526a-4505-a420-c738b32c81e7';
+
