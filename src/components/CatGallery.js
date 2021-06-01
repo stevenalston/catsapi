@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actions from 'actions';
 import CatDetailBox from 'components/CatDetailBox';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const CatGallery = (props) => {
+  console.log(props);
   // create the gallery setup
   return (
     <div className="hero is-fullheight is-bold is-info">
@@ -40,4 +42,4 @@ function mapStateToProps(state) {
   return { cats: state.cats };
 }
 
-export default connect(mapStateToProps)(CatGallery);
+export default connect(mapStateToProps, actions)(CatGallery);
