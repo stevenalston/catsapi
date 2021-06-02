@@ -1,13 +1,50 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import Carousel, { slidesToShowPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
 const CatCarousel = (props) => {
-  
-  // create the gallery setup
+  const breedInfoRef = useRef(null);
+
+  let flag = false
+
+  const displayInfo = (cat) => {
+    flag = true
+    renderBreedInfo(cat, flag)
+  }
+
+  const renderBreedInfo = (cat, flag) => {
+    console.log('cat: ', cat)
+    console.log('flag: ', flag)
+    if (!flag) {
+      return null;
+    } else {
+    console.log('inside else')
+    return (
+      <ul ref={breedInfoRef} className="cat-info-box">
+        <li className="text-primary">
+          Breed: {cat.name}
+        </li>
+        <li className="text-primary">
+          Weight: {cat.weight.imperial} LBS.
+        </li>
+        <li className="text-primary">
+          Hyperallergenic:{cat.hypoallergenic === 0 ? 'No' : 'Yes'}
+        </li>
+      </ul>
+    )
+    }
+  }
+
+  // create the gallery Slides
   const renderSlides = () => props.cats.map(cat => {
-    return <img src={cat.url} key={cat.id} />
+    console.log(cat);
+    return (
+      <div onClick={() => displayInfo(cat)} key={cat.image.id}>
+        <img src={cat.image.url} />
+        {renderBreedInfo(cat, flag)}
+      </div>
+    )
   })
   return (
     <>
@@ -47,7 +84,7 @@ const CatCarousel = (props) => {
           }
         }}
       >
-        {renderSlides()}
+      {renderSlides()}
       </Carousel>
     </main>
     </>

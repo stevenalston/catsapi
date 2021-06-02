@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
 import CatGalleryImage from 'components/CatGalleryImage';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const CatGallery = (props) => {
-  console.log(props);
   // create the gallery setup
   return (
     <div className="hero is-fullheight is-bold is-info">
@@ -13,7 +12,7 @@ const CatGallery = (props) => {
         <div className="container">
           <InfiniteScroll
             dataLength={props.cats}
-            next={() => props.fetchCatsImages(5)}
+            next={() => props.fetchCats(5)}
             hasMore={true}
             loader={
               <img
@@ -38,4 +37,5 @@ function mapStateToProps(state) {
   return { cats: state.cats };
 }
 
+// need initail state and actions to call fetchCats
 export default connect(mapStateToProps, actions)(CatGallery);

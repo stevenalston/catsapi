@@ -33,3 +33,11 @@
 .BrainhubCarouselItem img:hover {
   transform: scale(1.25);
 }
+
+.breed-info {
+  display: none;
+}
+
+.display-info {
+  display: block;
+}

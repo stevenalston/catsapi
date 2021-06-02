@@ -1,25 +1,25 @@
 import catData from 'apis/cats';
-import { CATS_API_KEY } from 'keys'
-import { FETCH_CATS_IMAGES, FETCH_CATS_BREEDS } from 'actions/types';
+import { FETCH_CATS } from 'actions/types';
 
-export async function fetchCatsImages(count = 10) {
-  const response = await catData.get('/images/search', {
+export async function fetchCats(count = 10) {
+  const response = await catData.get('/breeds', {
     params: {
-      limit: count
+      limit: count,
+      attach_breed: 1
     }
   });
 
   return {
-    type: FETCH_CATS_IMAGES,
+    type: FETCH_CATS,
     payload: response.data
   }
 }
 
-export async function fetchCatsBreeds() {
-  const response = await catData.get('/breeds');
+// export async function fetchCatsBreed() {
+//   const response = await catData.get('/breeds');
 
-  return {
-    type: FETCH_CATS_BREEDS,
-    payload: response.data
-  }
-}
+//   return {
+//     type: FETCH_CATS_BREEDS,
+//     payload: response.data
+//   }
+// }
