@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import * as actions from 'actions';
-import CatDetailBox from 'components/CatDetailBox';
+import CatGalleryImage from 'components/CatGalleryImage';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 const CatGallery = (props) => {
@@ -11,13 +11,9 @@ const CatGallery = (props) => {
     <div className="hero is-fullheight is-bold is-info">
       <div className="hero-body">
         <div className="container">
-          <div className="header content">
-            <h2 className="subtitle is-6">Warner Media Code Challenge</h2>
-            <h1 className="title is-1">Lazer Cats</h1>
-          </div>
           <InfiniteScroll
             dataLength={props.cats}
-            next={() => props.fetchCats(5)}
+            next={() => props.fetchCatsImages(5)}
             hasMore={true}
             loader={
               <img
@@ -28,7 +24,7 @@ const CatGallery = (props) => {
           >
             <div className="image-grid" style={{ marginTop: "30px" }}>
               {props.cats.map((cat) => (
-                <CatDetailBox cat={cat} />
+                <CatGalleryImage cat={cat} />
               ))}
             </div>
           </InfiniteScroll>

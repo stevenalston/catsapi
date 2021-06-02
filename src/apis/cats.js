@@ -1,6 +1,9 @@
 import axios from 'axios';
-import catsAPIKey from 'keys/catsAPI'
+import { CATS_API_KEY } from 'keys'
 
 export default axios.create({
-  baseURL: `https://api.thecatapi.com/v1/images/?api_key${catsAPIKey}`
+  baseURL: `https://api.thecatapi.com/v1`,
+  headers: {
+    'X-API-KEY': CATS_API_KEY
+  },
 })

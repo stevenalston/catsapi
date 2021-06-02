@@ -10,7 +10,7 @@ import 'styles/App.css';
 
 const App = (props) => {
   useEffect(() => {
-    props.fetchCats()
+    props.fetchCatsImages()
   }, [])
 
   const renderHeader = () => {
