@@ -1,7 +1,7 @@
-import catData from 'apis/cats';
-import { FETCH_CATS } from 'actions/types';
+import catData from 'apis';
+import { FETCH_CAT_BREEDS, FETCH_CAT_IMAGES } from 'actions/types';
 
-export async function fetchCats(count = 10) {
+export async function fetchCatBreeds(count = 10) {
   const response = await catData.get('/breeds', {
     params: {
       limit: count,
@@ -10,16 +10,20 @@ export async function fetchCats(count = 10) {
   });
 
   return {
-    type: FETCH_CATS,
+    type: FETCH_CAT_BREEDS,
     payload: response.data
   }
 }
 
-// export async function fetchCatsBreed() {
-//   const response = await catData.get('/breeds');
+export async function fetchCatImages(count = 10) {
+  const response = await catData.get('/images/search', {
+      params: {
+        limit: count,
+      }
+  });
 
-//   return {
-//     type: FETCH_CATS_BREEDS,
-//     payload: response.data
-//   }
-// }
+  return {
+    type: FETCH_CAT_IMAGES,
+    payload: response.data
+  }
+}

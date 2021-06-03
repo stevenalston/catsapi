@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
-import { Navbar, Nav } from 'react-bootstrap'
-import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
-import * as actions from 'actions'
-import CatGallery from 'components/CatGallery';
-import CatCarousel from 'components/CatCarousel'
-import 'styles/App.css';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchCatImages, fetch_cat_breeds } from 'actions';
+import { Navbar, Nav } from 'react-bootstrap';
+import CatGallery from 'components/CatGallery/CatGallery';
+import CatCarousel from 'components/CatCarousel/CatCarousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "styles/styles.css";
+import { fetchCatBreeds } from '../actions';
 
+export default function App() {
+  const dispatch = useDispatch();
 
-const App = (props) => {
   useEffect(() => {
-    props.fetchCats();
-  }, [])
+    dispatch(fetchCatBreeds());
+    dispatch(fetchCatImages())
+  }, []);
 
   const renderHeader = () => {
     return (
@@ -24,10 +28,10 @@ const App = (props) => {
           </Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link>
-              <Link to="/">Gallery</Link>
+              <Link to="/">Carousel</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/carousel">Carousel</Link>
+              <Link to="/gallery">Gallery</Link>
             </Nav.Link>
           
           </Nav>
@@ -35,14 +39,14 @@ const App = (props) => {
       </>
     )
   }
-
+  
   return (
-    <>
-      {renderHeader()}
-      <Route path="/carousel" component={CatCarousel} />
-      <Route path="/" exact component={CatGallery} />
-    </>
-  )
+    <div className="App">
+      <BrowserRouter>
+        {renderHeader()}
+        <Route path='/' exact component={CatCarousel} />
+        <Route path='/gallery' exact component={CatGallery} />
+      </BrowserRouter>
+    </div>
+  );
 }
-
-export default connect(null, actions)(App)

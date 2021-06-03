@@ -1,13 +1,10 @@
-import { FETCH_CATS } from 'actions/types';
+import { FETCH_CAT_BREEDS } from 'actions/types';
 
 function cats(state = [], action) {
   switch (action.type) {
-    case FETCH_CATS:
+    case FETCH_CAT_BREEDS:
       const cats = (action.payload || []).map(cat => cat)
       return [...state, ...cats];
-    // case FETCH_CATS_BREEDS:
-    //   const catBreeds = (action.payload || []).map(cat => cat)
-    //   return [...state, ...catBreeds];
     default: 
       return state;
   }

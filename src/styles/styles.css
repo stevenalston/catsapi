@@ -25,19 +25,24 @@
 }
 
 .BrainhubCarouselItem img{
+  position: relative;
   max-width: 100%;
   height: auto;
   transition: all ease 200ms
 }
 
 .BrainhubCarouselItem img:hover {
-  transform: scale(1.25);
+  transform: scale(1.10);
 }
 
-.breed-info {
-  display: none;
+.BrainhubCarousel__arrows {
+  background: #007bff
 }
 
-.display-info {
-  display: block;
+.cat-info {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
 }

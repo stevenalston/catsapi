@@ -1,2 +1,2 @@
-export const FETCH_CATS = 'fetch_cats';
-// export const FETCH_CATS_BREEDS = 'fetch_cats_breeds';
+export const FETCH_CAT_BREEDS = 'fetch_cat_breeds';
+export const FETCH_CAT_IMAGES = 'fetch_cat_images';
