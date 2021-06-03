@@ -1,4 +1,6 @@
-# Getting Started with Lazer Cats API
+# Steve Alston Warner Media Code Challenge
+
+Below find the scripts to bootstrap the app
 
 ## Available Scripts
 
@@ -37,6 +39,23 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Design Decisions
+## Design Choices & Features
 
-Carousel Cat Details
+Find information about the app's styling and design choices, as well as technologies used to build this app.
+
+### Design
+
+There is minimal styling was accomplished utilizing react-bootstrap. There was also some custom styling using external stylesheets and inline css.
+
+#### Cat Details Information
+
+I chose to add the cat details below the picture, adding some positioning to tie the details to the selected cat. I believe this to be the most common placement a user would expect to find these details. It also is not obstructing the view of the image.
+
+### Technologies
+
+The Cats API app uses a variety of technologies, most importantly it uses the Redux library to accomplish state management within the App.
+
+I felt it was also important to add some navigational features to the Application. To accomplish this I implemented 'react-router-dom', which is typically the preferred module, versus other modules, such as 'react-router'.
+
+Cats API also is setup for unit and/or integeration tests with dependencies on enzyme, moxios, and the built-in JestJS library. 
+

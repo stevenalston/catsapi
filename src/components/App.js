@@ -22,18 +22,11 @@ export default function App() {
       <>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand>
-          <Nav.Link>
-              <Link to="/">Cats API</Link>
-            </Nav.Link>
+            <Link to="/">Cats API</Link>
           </Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link>
-              <Link to="/">Carousel</Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/gallery">Gallery</Link>
-            </Nav.Link>
-          
+            <Link className='nav-link' to="/">Carousel</Link>
+            <Link className='nav-link' to="/gallery">Gallery</Link>
           </Nav>
         </Navbar>
       </>
