@@ -1,9 +1,9 @@
 import catsReducer from 'reducers/cats';
-import { FETCH_CATS } from 'actions/types';
+import { FETCH_CAT_IMAGES } from 'actions/types';
 
-it('handles actions of type FETCH_CATS', () => {
+it('handles actions of type FETCH_CAT_IMAGES', () => {
   const action = {
-    type: FETCH_CATS,
+    type: FETCH_CAT_IMAGES,
     payload: {
       data: [{cat: 'cat1'}]
     }
